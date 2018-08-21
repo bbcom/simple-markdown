@@ -1054,9 +1054,19 @@ var defaultRules /* : DefaultRules */ = {
                 // because non-last items in the list can end with \n\n, but
                 // the last item can't, so we just "inherit" this property
                 // from our previous element).
-                var thisItemIsAParagraph = containsBlocks ||
-                        (isLastItem && lastItemWasAParagraph);
-                lastItemWasAParagraph = thisItemIsAParagraph;
+
+
+                /*
+                 * React Native does not allow non-text components to be children
+                 * of text components.  
+                 */
+                
+                //  var thisItemIsAParagraph = containsBlocks ||
+                //         (isLastItem && lastItemWasAParagraph);
+                // lastItemWasAParagraph = thisItemIsAParagraph;
+
+                var thisItemIsAParagraph = false; 
+            
 
                 // backup our state for restoration afterwards. We're going to
                 // want to set state._list to true, and state.inline depending
